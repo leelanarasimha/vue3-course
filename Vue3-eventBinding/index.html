@@ -20,7 +20,7 @@
                             <button class="btn btn-primary" v-on:click="onIncrement()">
                                 Increment</button
                             >&nbsp;
-                            <button class="btn btn-primary" v-on:click="onDecrement()">
+                            <button class="btn btn-primary" v-on:click.right="onDecrement()">
                                 Decrement
                             </button>
                             <h2>{{count}}</h2>
@@ -35,6 +35,14 @@
 
                             <div>
                                 Your Name is {{name}}</div>
+                            </div>
+
+
+                            <div class="mt-3">
+                                <form v-on:submit.stop="submitForm">
+                                    <input type="text" class="form-control"/>
+                                    <button>Submit Form</button>
+                                </form>
                             </div>
                         </div>
                     </div>
