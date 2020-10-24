@@ -1,8 +1,9 @@
 const app = Vue.createApp({
     data() {
         return {
-            count: 0
-        }
+            count: 0,
+            name: '',
+        };
     },
     methods: {
         onIncrement() {
@@ -10,8 +11,11 @@ const app = Vue.createApp({
         },
         onDecrement() {
             this.count--;
-        }
-    }
+        },
+        setName(event, lastName) {
+            this.name = event.target.value + lastName;
+        },
+    },
 });
 
 app.mount('#app');
