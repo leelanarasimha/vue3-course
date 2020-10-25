@@ -29,21 +29,14 @@
                         <div class="mt-3">
                             <div class="form-group">
                                 <label>Enter Your Name</label>
-                                <input type="text" class="form-control" 
-                                v-on:input="setName($event, ' Web Dev')"
-                                v-on:keyup.enter="setConfirmedName" />
+                                <input type="text" class="form-control" v-model="name" />
                             </div>
 
-                            <div v-once>Your Initial Name is {{name}}</div>
-
-                            <div>
-                                Your Name is {{confirmedName}}</div>
-                            </div>
-
+                            <div>Your Name is: {{outputFullName()}}</div>
 
                             <div class="mt-3">
                                 <form v-on:submit.stop="submitForm">
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" class="form-control" />
                                     <button>Submit Form</button>
                                 </form>
                             </div>

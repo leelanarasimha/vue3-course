@@ -2,11 +2,15 @@ const app = Vue.createApp({
     data() {
         return {
             count: 0,
-            name: 'Leela Web Dev',
+            name: 'Leela',
             confirmedName: '',
         };
     },
     methods: {
+        outputFullName() {
+            console.log('executing full name');
+            return this.name + ' Web Dev';
+        },
         setConfirmedName() {
             this.confirmedName = this.name;
         },
@@ -19,8 +23,8 @@ const app = Vue.createApp({
         onDecrement() {
             this.count--;
         },
-        setName(event, lastName) {
-            this.name = event.target.value + lastName;
+        setName(event) {
+            this.name = event.target.value;
         },
     },
 });
