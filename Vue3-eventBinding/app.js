@@ -3,8 +3,16 @@ const app = Vue.createApp({
         return {
             count: 0,
             name: 'Leela',
+            lastName: '',
             confirmedName: '',
         };
+    },
+
+    computed: {
+        fullName() {
+            console.log('executing computed');
+            return this.name + ' Web Dev';
+        },
     },
     methods: {
         outputFullName() {
