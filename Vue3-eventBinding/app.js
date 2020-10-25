@@ -4,6 +4,7 @@ const app = Vue.createApp({
             count: 0,
             name: 'Leela',
             lastName: '',
+
             confirmedName: '',
         };
     },
