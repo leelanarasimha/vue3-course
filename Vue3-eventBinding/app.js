@@ -2,10 +2,14 @@ const app = Vue.createApp({
     data() {
         return {
             count: 0,
-            name: '',
+            name: 'Leela Web Dev',
+            confirmedName: '',
         };
     },
     methods: {
+        setConfirmedName() {
+            this.confirmedName = this.name;
+        },
         submitForm() {
             alert('submitted');
         },

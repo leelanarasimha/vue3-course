@@ -30,11 +30,14 @@
                             <div class="form-group">
                                 <label>Enter Your Name</label>
                                 <input type="text" class="form-control" 
-                                v-on:input="setName($event, ' Web Dev')" />
+                                v-on:input="setName($event, ' Web Dev')"
+                                v-on:keyup.enter="setConfirmedName" />
                             </div>
 
+                            <div v-once>Your Initial Name is {{name}}</div>
+
                             <div>
-                                Your Name is {{name}}</div>
+                                Your Name is {{confirmedName}}</div>
                             </div>
 
 
