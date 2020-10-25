@@ -2,16 +2,24 @@ const app = Vue.createApp({
     data() {
         return {
             count: 0,
-            name: 'Leela',
+            name: '',
             lastName: '',
             confirmedName: '',
         };
     },
 
+    watch: {
+        count(value) {
+            if (value > 5) {
+                this.count = 0;
+            }
+        },
+    },
+
     computed: {
         fullName() {
             console.log('executing computed');
-            return this.name + ' Web Dev';
+            return this.name + this.lastName;
         },
     },
     methods: {
