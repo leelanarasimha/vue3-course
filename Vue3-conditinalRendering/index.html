@@ -33,11 +33,11 @@
                         <div class="mt-3">
                             <h4>Hobbies List</h4>
 
-                            <div v-if="hobbies.length === 0" class="alert alert-warning">
+                            <div v-show="hobbies.length === 0" class="alert alert-warning">
                                 No Hobbies Present
                             </div>
 
-                            <ul class="list-group" v-if="hobbies.length > 0">
+                            <ul class="list-group" v-show="hobbies.length > 0">
                                 <li class="list-group-item">Hobby1</li>
                                 <li class="list-group-item">Hobby2</li>
                             </ul>
