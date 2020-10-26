@@ -15,19 +15,14 @@
         <div id="app">
             <div class="container">
                 <div class="d-flex flex-column">
+                    <div class="box" :class="boxAClasses" @click="onBoxSelected('A')"></div>
                     <div
-                        class="box"
-                        :style="{'background-color': boxASelected ? 'red': '#fff'}"
-                        @click="onBoxSelected('A')"
-                    ></div>
-                    <div
-                        class="box"
-                        :style="{backgroundColor: boxBSelected ? 'blue': '#fff'}"
+                        :class="[{active: boxBSelected}, 'box', 'class2']"
                         @click="onBoxSelected('B')"
                     ></div>
                     <div
                         class="box"
-                        :style="{backgroundColor: boxCSelected ? 'green': '#fff'}"
+                        :class="{active: boxCSelected}"
                         @click="onBoxSelected('C')"
                     ></div>
                 </div>
@@ -42,6 +37,9 @@
                 height: 150px;
                 border: 1px solid #000;
                 margin-top: 3rem;
+            }
+            .active {
+                background: red;
             }
         </style>
     </body>
