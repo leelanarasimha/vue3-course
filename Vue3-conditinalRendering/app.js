@@ -3,6 +3,11 @@ const app = Vue.createApp({
         return {
             hobbies: [],
             enteredHobbyValue: '',
+            userDetails: {
+                firstName: 'Leela',
+                lastName: 'Web Dev',
+                age: 34,
+            },
         };
     },
     methods: {

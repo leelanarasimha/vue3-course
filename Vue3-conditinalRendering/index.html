@@ -33,13 +33,27 @@
                         <div class="mt-3">
                             <h4>Hobbies List</h4>
 
-                            <div v-show="hobbies.length === 0" class="alert alert-warning">
+                            <div v-if="hobbies.length === 0" class="alert alert-warning">
                                 No Hobbies Present
                             </div>
 
-                            <ul class="list-group" v-show="hobbies.length > 0">
-                                <li class="list-group-item">Hobby1</li>
-                                <li class="list-group-item">Hobby2</li>
+                            <ul class="list-group" v-if="hobbies.length > 0">
+                                <li class="list-group-item" v-for="(hobby, index) in hobbies">
+                                    {{hobby}} - {{index}}
+                                </li>
+                            </ul>
+
+                            <ul>
+                                <li v-for="num in 10">{{num}}</li>
+                            </ul>
+
+                            <ul class="list-group">
+                                <li
+                                    class="list-group-item"
+                                    v-for="(user, key, index) in userDetails"
+                                >
+                                    {{key}}: {{user}} - {{index}}
+                                </li>
                             </ul>
                         </div>
                     </div>
