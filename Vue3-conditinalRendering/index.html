@@ -38,12 +38,18 @@
                             </div>
 
                             <ul class="list-group" v-if="hobbies.length > 0">
-                                <li class="list-group-item" v-for="(hobby, index) in hobbies">
-                                    {{hobby}} - {{index}}
+                                <li
+                                    class="list-group-item"
+                                    v-for="(hobby, index) in hobbies"
+                                    :key="hobby"
+                                    @click.prevent="removeHobby(index)"
+                                >
+                                    <div>{{hobby}} - {{index}}</div>
+                                    <input type="text" @click.stop />
                                 </li>
                             </ul>
 
-                            <ul>
+                            <!-- <ul>
                                 <li v-for="num in 10">{{num}}</li>
                             </ul>
 
@@ -54,7 +60,7 @@
                                 >
                                     {{key}}: {{user}} - {{index}}
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
