@@ -7,7 +7,13 @@ const app = Vue.createApp({
         return {
             message: 'Hello world',
             data: commonData,
+            textMessage: '',
         };
+    },
+    methods: {
+        setText() {
+            this.textMessage = this.$refs.userText.value;
+        },
     },
 });
 
