@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="my-4">
                     <select-component
                         data-status="1"
@@ -14,9 +14,26 @@
                 >
                 <h2>Posts</h2>
                 <div v-for="post in posts" :key="post.title">
-                    <single-post :data="post" isactive="1"></single-post>
+                    <single-post
+                        :data="post"
+                        isactive="1"
+                        @title-changed="onTitleChange"
+                    ></single-post>
                     <hr />
                 </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Latest Posts</h3>
+                <ul class="list-group">
+                    <li
+                        class="list-group-item"
+                        v-for="post in posts"
+                        :key="post.title"
+                    >
+                        {{ post.title }}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -29,10 +46,12 @@ export default {
         return {
             posts: [
                 {
+                    id: 1,
                     title: 'New Post 1',
                     description: 'Post Description 1',
                 },
                 {
+                    id: 2,
                     title: 'New Post 2',
                     description: 'Post Description 2',
                 },
@@ -40,6 +59,12 @@ export default {
         };
     },
     methods: {
+        onTitleChange(event) {
+            let index = this.posts.findIndex(
+                (post) => (post.id = event.id),
+            );
+            this.posts[index].title = event.title;
+        },
         changeTitle() {
             this.posts[0].title = 'change the title in parent';
         },

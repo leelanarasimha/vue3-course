@@ -10,15 +10,17 @@
 
 <script>
 export default {
+    emits: ['title-changed'],
     props: ['data', 'isactive'],
     data() {
         return {
-            post: this.data,
+            post: { ...this.data },
         };
     },
     methods: {
         changeTitle() {
             this.post.title = 'changed the title';
+            this.$emit('title-changed', this.post);
         },
     },
 };
