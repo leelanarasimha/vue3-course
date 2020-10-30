@@ -2,6 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <div class="my-4">
+                    <select-component
+                        data-status="1"
+                        id="selectbox"
+                        @change="selectChange"
+                    ></select-component>
+                </div>
                 <a href="" @click.prevent="changeTitle()"
                     >Click to change title</a
                 >
@@ -16,6 +23,7 @@
 </template>
 
 <script>
+import SelectComponent from './components/SelectComponent.vue';
 export default {
     data() {
         return {
@@ -35,9 +43,14 @@ export default {
         changeTitle() {
             this.posts[0].title = 'change the title in parent';
         },
+        selectChange(event) {
+            console.log(event.target.value);
+        },
     },
     name: 'App',
-    components: {},
+    components: {
+        SelectComponent,
+    },
 };
 </script>
 
