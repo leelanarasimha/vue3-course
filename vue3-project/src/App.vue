@@ -3,11 +3,10 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="my-4">
-                    <select-component
-                        data-status="1"
-                        id="selectbox"
-                        @change="selectChange"
-                    ></select-component>
+                    <div>{{ user }}</div>
+                    <a href="" @click.prevent="changeUser()"
+                        >Click to change User Name</a
+                    >
                 </div>
                 <a href="" @click.prevent="changeTitle()"
                     >Click to change title</a
@@ -40,7 +39,7 @@
 </template>
 
 <script>
-import SelectComponent from './components/SelectComponent.vue';
+import { computed } from 'vue';
 export default {
     data() {
         return {
@@ -56,9 +55,18 @@ export default {
                     description: 'Post Description 2',
                 },
             ],
+            user: 'Leela Web Dev',
+        };
+    },
+    provide() {
+        return {
+            user: computed(() => this.user),
         };
     },
     methods: {
+        changeUser() {
+            this.user = 'Updated Leela Web Dev';
+        },
         onTitleChange(event) {
             let index = this.posts.findIndex(
                 (post) => post.id === event.id,
@@ -73,9 +81,7 @@ export default {
         },
     },
     name: 'App',
-    components: {
-        SelectComponent,
-    },
+    components: {},
 };
 </script>
 

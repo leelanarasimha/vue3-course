@@ -1,14 +1,18 @@
 <template>
     <div>
         <div class="title">{{ post.title }}</div>
+        <post-user></post-user>
         <div>{{ post.description }}</div>
+
         <a href="" @click.prevent="changeTitle()"
             >Click here to change title</a
         >
+        <div>{{ user.value }}</div>
     </div>
 </template>
 <script>
 import { Post } from '../services/PostService';
+import PostUser from './PostUser';
 export default {
     emits: {
         'title-changed': (post) => {
@@ -19,6 +23,10 @@ export default {
             return false;
         },
     },
+    components: {
+        PostUser,
+    },
+    inject: ['user'],
     props: ['data', 'isactive'],
     data() {
         return {
