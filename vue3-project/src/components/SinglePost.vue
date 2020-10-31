@@ -7,10 +7,18 @@
         >
     </div>
 </template>
-
 <script>
+import { Post } from '../services/PostService';
 export default {
-    emits: ['title-changed'],
+    emits: {
+        'title-changed': (post) => {
+            if (post instanceof Post) {
+                return true;
+            }
+            console.log('invalid Post Data');
+            return false;
+        },
+    },
     props: ['data', 'isactive'],
     data() {
         return {
@@ -20,7 +28,12 @@ export default {
     methods: {
         changeTitle() {
             this.post.title = 'changed the title';
-            this.$emit('title-changed', this.post);
+            const postData = new Post(
+                this.post.id,
+                this.post.title,
+                this.post.description,
+            );
+            this.$emit('title-changed', postData);
         },
     },
 };

@@ -61,7 +61,7 @@ export default {
     methods: {
         onTitleChange(event) {
             let index = this.posts.findIndex(
-                (post) => (post.id = event.id),
+                (post) => post.id === event.id,
             );
             this.posts[index].title = event.title;
         },
