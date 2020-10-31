@@ -90,4 +90,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h2 {
+    color: green;
+}
+</style>

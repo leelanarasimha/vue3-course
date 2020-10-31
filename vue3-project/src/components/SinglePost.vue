@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="title">{{ post.title }}</div>
+        <h2 class="title">{{ post.title }}</h2>
         <post-user></post-user>
         <div>{{ post.description }}</div>
 
@@ -47,9 +47,10 @@ export default {
 };
 </script>
 
-<style>
-.title {
+<style scoped>
+h2 {
     color: red;
+    font-size: 20px;
     font-weight: bold;
 }
 </style>
