@@ -61,11 +61,16 @@ export default {
     provide() {
         return {
             user: computed(() => this.user),
+            changeuser: this.changeUser,
         };
     },
     methods: {
-        changeUser() {
-            this.user = 'Updated Leela Web Dev';
+        changeUser(user) {
+            if (user) {
+                this.user = user;
+            } else {
+                this.user = 'Updated Leela Web Dev';
+            }
         },
         onTitleChange(event) {
             let index = this.posts.findIndex(
