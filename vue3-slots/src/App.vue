@@ -27,6 +27,24 @@
                 <profile-card> </profile-card>
             </div>
         </div>
+
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <hobbies #default="{hobby: name, item = 2}">
+                        <h2>{{ name }} {{ item }}</h2>
+                    </hobbies>
+                </div>
+                <div class="col-md-4">
+                    <hobbies>
+                        <template #default="slotProps">
+                            <div>{{ slotProps.hobby }}</div>
+                        </template>
+                    </hobbies>
+                </div>
+            </div>
+        </div>
+        <div class="my-5 py-5"></div>
     </div>
 </template>
 
@@ -34,6 +52,7 @@
 import HelloWorld from './components/HelloWorld.vue';
 import Button from './components/Button.vue';
 import ProfileCard from './components/ProfileCard.vue';
+import Hobbies from './components/Hobbies.vue';
 
 export default {
     name: 'App',
@@ -41,6 +60,7 @@ export default {
         HelloWorld,
         Button,
         ProfileCard,
+        Hobbies,
     },
 };
 </script>
