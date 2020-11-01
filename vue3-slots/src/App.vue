@@ -1,23 +1,43 @@
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
 
     <Button>
         <em class="fa fa-caret-down"></em>&nbsp; User Profile
     </Button>
 
-    <Button> <em class="fa fa-caret-up"></em>&nbsp; User Data </Button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <profile-card>
+                    <template v-slot:header>
+                        <div>Header Title</div>
+                    </template>
+
+                    <template v-slot:default>
+                        <div>Content</div>
+                        <div>Contrent message</div>
+                    </template>
+
+                    <template v-slot:footer>
+                        <div>Footer Message</div>
+                    </template>
+                </profile-card>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
 import Button from './components/Button.vue';
+import ProfileCard from './components/ProfileCard.vue';
 
 export default {
     name: 'App',
     components: {
         HelloWorld,
         Button,
+        ProfileCard,
     },
 };
 </script>
