@@ -1,19 +1,23 @@
 <template>
     <div class="card">
-        <div class="header">
-            <slot name="header"></slot>
+        <div class="header" v-if="$slots.header">
+            <slot name="header"> </slot>
         </div>
         <div class="content">
-            <slot></slot>
+            <slot><div>Default Content</div></slot>
         </div>
         <div class="footer">
-            <slot name="footer"></slot>
+            <slot name="footer"><div>Default Footer</div></slot>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    mounted() {
+        console.log(this.$slots);
+    },
+};
 </script>
 
 <style scoped>
@@ -24,6 +28,7 @@ export default {};
 .header {
     background: #eee;
     font-size: 20px;
+    padding: 20px;
 }
 
 .content {

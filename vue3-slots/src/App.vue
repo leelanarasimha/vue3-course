@@ -9,19 +9,22 @@
         <div class="row">
             <div class="col-md-4">
                 <profile-card>
-                    <template v-slot:header>
+                    <template #header>
                         <div>Header Title</div>
                     </template>
 
-                    <template v-slot:default>
+                    <template #default>
                         <div>Content</div>
                         <div>Contrent message</div>
                     </template>
 
-                    <template v-slot:footer>
+                    <template #footer>
                         <div>Footer Message</div>
                     </template>
                 </profile-card>
+            </div>
+            <div class="col-md-4">
+                <profile-card> </profile-card>
             </div>
         </div>
     </div>
