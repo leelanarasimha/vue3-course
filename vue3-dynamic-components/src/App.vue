@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+        <div>
+            <button @click="onActiveSelected">Active Hobbies</button>
+            <button @click="onInactiveSelected">InActive Hobbies</button>
+        </div>
+
+        <keep-alive>
+            <component :is="selectedComponent"></component>
+        </keep-alive>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ActiveHobbies from './components/ActiveHobbies.vue';
+import InactiveHobbies from './components/InactiveHobbies.vue';
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    data() {
+        return {
+            selectedComponent: 'active-hobbies',
+        };
+    },
+    name: 'App',
+    components: {
+        ActiveHobbies,
+        InactiveHobbies,
+    },
+    methods: {
+        onActiveSelected() {
+            this.selectedComponent = 'active-hobbies';
+        },
+        onInactiveSelected() {
+            this.selectedComponent = 'inactive-hobbies';
+        },
+    },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
 }
 </style>
