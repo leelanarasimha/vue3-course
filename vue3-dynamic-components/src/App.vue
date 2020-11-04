@@ -12,8 +12,20 @@
 </template>
 
 <script>
-import ActiveHobbies from './components/ActiveHobbies.vue';
-import InactiveHobbies from './components/InactiveHobbies.vue';
+import { defineAsyncComponent } from 'vue';
+
+const ActiveHobbies = defineAsyncComponent(() => {
+    return import(
+        /* webpackChunkName: 'activehobbies' */ './components/ActiveHobbies.vue'
+    );
+});
+
+const InactiveHobbies = defineAsyncComponent(() => {
+    return import(
+        /* webpackChunkName: 'inactivehobbies' */ './components/InactiveHobbies.vue'
+    );
+});
+
 export default {
     data() {
         return {
