@@ -5,14 +5,26 @@
             <button @click="onInactiveSelected">InActive Hobbies</button>
         </div>
 
+        <div>
+            <a href="" @click.prevent="onOpenModal()">Open Modal</a>
+        </div>
+
         <keep-alive>
             <component :is="selectedComponent"></component>
         </keep-alive>
+
+        <teleport to="body">
+            <modal-dialog
+                v-if="showModal"
+                @closemodal="showModal = false"
+            ></modal-dialog>
+        </teleport>
     </div>
 </template>
 
 <script>
 import { defineAsyncComponent } from 'vue';
+import ModalDialog from './components/ModalDialog.vue';
 
 const ActiveHobbies = defineAsyncComponent(() => {
     return import(
@@ -30,14 +42,19 @@ export default {
     data() {
         return {
             selectedComponent: 'active-hobbies',
+            showModal: false,
         };
     },
     name: 'App',
     components: {
         ActiveHobbies,
         InactiveHobbies,
+        ModalDialog,
     },
     methods: {
+        onOpenModal() {
+            this.showModal = true;
+        },
         onActiveSelected() {
             this.selectedComponent = 'active-hobbies';
         },
