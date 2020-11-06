@@ -48,6 +48,7 @@ export default {
                 .then((response) => {
                     this.isSuccess = true;
                     console.log(response);
+                    this.$emit('postcreated');
                 });
         },
     },
