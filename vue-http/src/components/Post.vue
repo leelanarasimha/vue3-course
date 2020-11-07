@@ -41,10 +41,10 @@ export default {
     methods: {
         onCreatePost() {
             axios
-                .post(
-                    `https://vue-completecourse.firebaseio.com/posts.json`,
-                    { title: this.title, description: this.description },
-                )
+                .post(`posts.json`, {
+                    title: this.title,
+                    description: this.description,
+                })
                 .then((response) => {
                     this.isSuccess = true;
                     console.log(response);

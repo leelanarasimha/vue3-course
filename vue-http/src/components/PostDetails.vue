@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Axios from 'axios';
+import axiosinstance from '../services/axiosinstance';
 export default {
     data() {
         return {
@@ -34,9 +34,8 @@ export default {
 
     methods: {
         getPostDetails() {
-            Axios.get(
-                `https://vue-completecourse.firebaseio.com/posts.json`,
-            ).then((response) => {
+            axiosinstance.get(`posts.json`).then((response) => {
+                console.log(response);
                 this.formatPostDetails(response.data);
             });
         },
