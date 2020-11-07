@@ -23,6 +23,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes: routes,
+    linkActiveClass: 'active',
 });
 
 const app = createApp(App);
