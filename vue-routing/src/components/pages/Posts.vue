@@ -1,33 +1,40 @@
 <template>
-    <div>
-        <h3>Post Details</h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>
-                        Actions
-                    </th>
-                </tr>
-            </thead>
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <h3>Post Details</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
 
-            <tbody>
-                <tr v-for="post in postDetails" :key="post.id">
-                    <td>{{ post.id }}</td>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.description }}</td>
-                    <td>
-                        <router-link
-                            :to="`/posts/${post.id}`"
-                            class="btn btn-primary"
-                            >Show Details</router-link
-                        >
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <tbody>
+                        <tr v-for="post in postDetails" :key="post.id">
+                            <td>{{ post.id }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.description }}</td>
+                            <td>
+                                <router-link
+                                    :to="`/posts/${post.id}`"
+                                    class="btn btn-primary"
+                                    >Show Details</router-link
+                                >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
