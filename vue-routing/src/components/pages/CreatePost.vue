@@ -35,13 +35,10 @@ export default {
 
     methods: {
         onCreatePost() {
-            Axios.post(
-                `https://vue-completecourse.firebaseio.com/posts.json`,
-                {
-                    title: this.title,
-                    description: this.description,
-                },
-            ).then((response) => {
+            Axios.post(`posts.json`, {
+                title: this.title,
+                description: this.description,
+            }).then((response) => {
                 console.log(response);
                 this.$router.push('/posts');
             });

@@ -7,6 +7,9 @@
                     <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>
+                        Actions
+                    </th>
                 </tr>
             </thead>
 
@@ -15,6 +18,13 @@
                     <td>{{ post.id }}</td>
                     <td>{{ post.title }}</td>
                     <td>{{ post.description }}</td>
+                    <td>
+                        <router-link
+                            :to="`/posts/${post.id}`"
+                            class="btn btn-primary"
+                            >Show Details</router-link
+                        >
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -31,11 +41,9 @@ export default {
         };
     },
     mounted() {
-        axios
-            .get(`https://vue-completecourse.firebaseio.com/posts.json`)
-            .then((response) => {
-                this.formatPosts(response.data);
-            });
+        axios.get(`posts.json`).then((response) => {
+            this.formatPosts(response.data);
+        });
     },
     methods: {
         formatPosts(postsData) {
