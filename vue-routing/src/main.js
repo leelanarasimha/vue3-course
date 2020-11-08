@@ -1,16 +1,16 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import Home from './components/pages/Home.vue';
 import Posts from './components/pages/Posts.vue';
 import CreatePost from './components/pages/CreatePost.vue';
 import PostItem from './components/pages/PostItem.vue';
+import NotFound from './components/pages/NotFound.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import Axios from 'axios';
 
 const routes = [
     {
         path: '/',
-        component: Home,
+        redirect: '/posts',
     },
     {
         path: '/posts',
@@ -25,6 +25,8 @@ const routes = [
         path: '/createpost',
         component: CreatePost,
     },
+
+    { path: '/:NotFound(.*)*', component: NotFound },
 ];
 
 const router = createRouter({
