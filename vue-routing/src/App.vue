@@ -1,21 +1,23 @@
 <template>
-    <Navigation />
+    <router-view name="navigation"></router-view>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <router-view></router-view>
+                <div>
+                    <router-view></router-view>
+                </div>
+                <div>
+                    <router-view name="footer"></router-view>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Navigation from './components/TheNavigation.vue';
 export default {
     name: 'App',
-    components: {
-        Navigation,
-    },
+    components: {},
 };
 </script>
 
