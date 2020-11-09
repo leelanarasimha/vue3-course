@@ -14,7 +14,7 @@
         </div>
 
         <div>
-            <router-link class="btn btn-warning" to="/posts"
+            <router-link class="btn btn-warning" :to="{ name: 'posts' }"
                 >Back to Posts</router-link
             >
         </div>
@@ -49,6 +49,8 @@ export default {
         //         this.getPostDetails();
         //     },
         // );
+
+        console.log(this.$route.query);
         this.getPostDetails();
     },
     methods: {

@@ -14,7 +14,8 @@ const routes = [
         redirect: '/posts',
     },
     {
-        path: '/posts',
+        name: 'posts',
+        path: '/blog',
         component: Posts,
         children: [
             {
@@ -22,6 +23,7 @@ const routes = [
                 component: NoPost,
             },
             {
+                name: 'single-post',
                 path: ':id',
                 component: PostItem,
                 props: true,

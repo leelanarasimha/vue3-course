@@ -22,7 +22,11 @@
                             <td>{{ post.description }}</td>
                             <td>
                                 <router-link
-                                    :to="`/posts/${post.id}`"
+                                    :to="{
+                                        name: 'single-post',
+                                        params: { id: post.id },
+                                        query: { sort: 'asc' },
+                                    }"
                                     class="btn btn-primary"
                                     >Show Details</router-link
                                 >
