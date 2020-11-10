@@ -56,6 +56,19 @@ const router = createRouter({
     linkActiveClass: 'active',
 });
 
+router.beforeEach((to, from, next) => {
+    console.log(to);
+    console.log(from);
+    if (to.path === '/createpost') {
+        next({
+            name: 'single-post',
+            params: { id: '-MLaYCE0uabwwcfCdaaR' },
+        });
+    } else {
+        next();
+    }
+});
+
 Axios.defaults.baseURL = 'https://vue-completecourse.firebaseio.com/';
 
 const app = createApp(App);
