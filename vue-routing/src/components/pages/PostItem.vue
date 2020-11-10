@@ -30,6 +30,9 @@ export default {
             post: '',
         };
     },
+    beforeRouteUpdate() {
+        console.log('Before route update in post item');
+    },
     watch: {
         id() {
             console.log('props details');

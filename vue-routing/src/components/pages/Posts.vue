@@ -48,6 +48,7 @@ export default {
     name: 'Posts',
     data() {
         return {
+            hai: 'hai',
             postDetails: [],
         };
     },
@@ -56,8 +57,14 @@ export default {
             this.formatPosts(response.data);
         });
     },
-    beforeRouteEnter() {
+    beforeRouteEnter(to, from, next) {
+        next((vm) => {
+            console.log(vm.hai);
+        });
         console.log('component based before each');
+    },
+    beforeRouteUpdate() {
+        console.log('Before route update');
     },
     beforeRouteLeave() {
         console.log('before route leave execution');
