@@ -56,6 +56,12 @@ export default {
             this.formatPosts(response.data);
         });
     },
+    beforeRouteEnter() {
+        console.log('component based before each');
+    },
+    beforeRouteLeave() {
+        console.log('before route leave execution');
+    },
     methods: {
         formatPosts(postsData) {
             for (let key in postsData) {

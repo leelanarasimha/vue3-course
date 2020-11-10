@@ -24,6 +24,9 @@ const routes = [
             footer: PostsFooter,
             navigation: Navigation,
         },
+        beforeEnter: () => {
+            console.log('router based before each');
+        },
         children: [
             {
                 path: '',
@@ -56,17 +59,17 @@ const router = createRouter({
     linkActiveClass: 'active',
 });
 
-router.beforeEach((to, from, next) => {
-    console.log(to);
-    console.log(from);
+router.beforeEach((to, _1, next) => {
+    console.log('Global before each');
     if (to.path === '/createpost') {
-        next({
-            name: 'single-post',
-            params: { id: '-MLaYCE0uabwwcfCdaaR' },
-        });
+        next();
     } else {
         next();
     }
+});
+
+router.afterEach(() => {
+    console.log('Router after each');
 });
 
 Axios.defaults.baseURL = 'https://vue-completecourse.firebaseio.com/';
