@@ -11,6 +11,9 @@
                         Click Me
                     </button>
                 </div>
+                <div class="my-3">
+                    <animate-button></animate-button>
+                </div>
 
                 <div class="my-3">
                     <the-paragraph></the-paragraph>
@@ -50,6 +53,7 @@
 import TheParagraph from './components/TheParagraph.vue';
 import AnimateParagraph from './components/AnimateParagraph.vue';
 import DialogModal from './components/DialogModal.vue';
+import AnimateButton from './components/AnimateButton.vue';
 export default {
     data() {
         return {
@@ -61,6 +65,7 @@ export default {
         TheParagraph,
         AnimateParagraph,
         DialogModal,
+        AnimateButton,
     },
     methods: {
         onAnimateClick() {
