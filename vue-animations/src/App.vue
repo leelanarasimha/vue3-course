@@ -18,6 +18,29 @@
                 <div class="my-3">
                     <animate-paragraph></animate-paragraph>
                 </div>
+
+                <div class="my-3">
+                    <dialog-modal :open="openDialog">
+                        <div>This is the Dialog Modal</div>
+                        <div class="my-3">
+                            <button
+                                class="btn btn-primary"
+                                @click.prevent="openDialog = false"
+                            >
+                                Okay!
+                            </button>
+                        </div>
+                    </dialog-modal>
+
+                    <div>
+                        <button
+                            @click.prevent="onOpenDialog()"
+                            class="btn btn-primary"
+                        >
+                            Open Dialog Modal
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -26,19 +49,26 @@
 <script>
 import TheParagraph from './components/TheParagraph.vue';
 import AnimateParagraph from './components/AnimateParagraph.vue';
+import DialogModal from './components/DialogModal.vue';
 export default {
     data() {
         return {
             animate: false,
+            openDialog: false,
         };
     },
     components: {
         TheParagraph,
         AnimateParagraph,
+        DialogModal,
     },
     methods: {
         onAnimateClick() {
             this.animate = true;
+        },
+
+        onOpenDialog() {
+            this.openDialog = true;
         },
     },
 };
