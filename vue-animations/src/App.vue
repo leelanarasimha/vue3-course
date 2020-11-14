@@ -45,6 +45,11 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="my-3">
+                    <transition-events></transition-events>
+                </div>
+            </div>
         </div>
     </div>
 </template>
