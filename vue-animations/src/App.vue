@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="box" :class="{ animate: animate }"></div>
                 <div class="my-3">
                     <button
@@ -54,6 +54,7 @@ import TheParagraph from './components/TheParagraph.vue';
 import AnimateParagraph from './components/AnimateParagraph.vue';
 import DialogModal from './components/DialogModal.vue';
 import AnimateButton from './components/AnimateButton.vue';
+import TransitionEvents from './components/TransitionEvents.vue';
 export default {
     data() {
         return {
@@ -66,6 +67,7 @@ export default {
         AnimateParagraph,
         DialogModal,
         AnimateButton,
+        TransitionEvents,
     },
     methods: {
         onAnimateClick() {
