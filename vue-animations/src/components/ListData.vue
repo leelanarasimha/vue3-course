@@ -7,12 +7,13 @@
         </div>
 
         <transition-group tag="div" name="list">
-            <span
+            <div
                 class="mx-1 list-item"
                 v-for="number in numbers"
                 :key="number"
-                >{{ number }}</span
             >
+                {{ number }}
+            </div>
         </transition-group>
     </div>
 </template>
@@ -47,7 +48,6 @@ export default {
 
 <style scoped>
 .list-item {
-    display: inline-block;
 }
 .list-enter-from,
 .list-leave-to {
@@ -67,5 +67,10 @@ export default {
 
 .list-leave-active {
     transition: all 1s ease-out;
+    position: absolute;
+}
+
+.list-move {
+    transition: transform 1s ease;
 }
 </style>
