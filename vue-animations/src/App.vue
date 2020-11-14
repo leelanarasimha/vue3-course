@@ -1,6 +1,15 @@
 <template>
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <router-view v-slot="{ Component }">
+                    <transition name="fade" mode="out-in">
+                        <component :is="Component" />
+                    </transition>
+                </router-view>
+            </div>
+        </div>
+        <!-- <div class="row">
             <div class="col-md-6">
                 <div class="box" :class="{ animate: animate }"></div>
                 <div class="my-3">
@@ -53,17 +62,17 @@
                     <list-data></list-data>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
-import TheParagraph from './components/TheParagraph.vue';
-import AnimateParagraph from './components/AnimateParagraph.vue';
-import DialogModal from './components/DialogModal.vue';
-import AnimateButton from './components/AnimateButton.vue';
-import TransitionEvents from './components/TransitionEvents.vue';
-import ListData from './components/ListData.vue';
+// import TheParagraph from './components/TheParagraph.vue';
+// import AnimateParagraph from './components/AnimateParagraph.vue';
+// import DialogModal from './components/DialogModal.vue';
+// import AnimateButton from './components/AnimateButton.vue';
+// import TransitionEvents from './components/TransitionEvents.vue';
+// import ListData from './components/ListData.vue';
 export default {
     data() {
         return {
@@ -72,12 +81,12 @@ export default {
         };
     },
     components: {
-        TheParagraph,
-        AnimateParagraph,
-        DialogModal,
-        AnimateButton,
-        TransitionEvents,
-        ListData,
+        // TheParagraph,
+        // AnimateParagraph,
+        // DialogModal,
+        // AnimateButton,
+        // TransitionEvents,
+        // ListData,
     },
     methods: {
         onAnimateClick() {
@@ -113,5 +122,19 @@ export default {
     100% {
         transform: translateX(200px) scaleX(1);
     }
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+fade-leave-from {
+    opacity: 1;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.5s ease;
 }
 </style>
