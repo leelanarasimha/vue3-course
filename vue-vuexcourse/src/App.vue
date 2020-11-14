@@ -3,7 +3,8 @@
         <counter></counter>
 
         <div>
-            {{ $store.state.count }}
+            <h3>App Vue counter</h3>
+            {{ count }}
         </div>
     </div>
 </template>
@@ -12,6 +13,11 @@
 import Counter from './components/Counter.vue';
 export default {
     name: 'App',
+    computed: {
+        count() {
+            return this.$store.state.count;
+        },
+    },
     components: {
         Counter,
     },
