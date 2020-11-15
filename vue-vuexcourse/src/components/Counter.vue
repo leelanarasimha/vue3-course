@@ -20,7 +20,10 @@ export default {
     },
     methods: {
         onIncrement() {
-            this.$store.state.count++;
+            this.$store.commit({
+                type: 'increment',
+                value: 5,
+            });
         },
     },
 };

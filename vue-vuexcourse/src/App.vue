@@ -6,6 +6,9 @@
             <h3>App Vue counter</h3>
             {{ count }}
         </div>
+        <div>
+            <button @click.prevent="onIncrement()">Increment</button>
+        </div>
     </div>
 </template>
 
@@ -20,6 +23,11 @@ export default {
     },
     components: {
         Counter,
+    },
+    methods: {
+        onIncrement() {
+            this.$store.commit('increment', { value: 2 });
+        },
     },
 };
 </script>
