@@ -9,20 +9,31 @@
         <div>
             <button @click.prevent="onIncrement()">Increment</button>
         </div>
+
+        <div>
+            <todos-list></todos-list>
+        </div>
+
+        <div>Todos list complete : {{ doneListCount }}</div>
     </div>
 </template>
 
 <script>
 import Counter from './components/Counter.vue';
+import TodosList from './components/TodosList.vue';
 export default {
     name: 'App',
     computed: {
         count() {
             return this.$store.state.count;
         },
+        doneListCount() {
+            return this.$store.getters.doneTodosListCount;
+        },
     },
     components: {
         Counter,
+        TodosList,
     },
     methods: {
         onIncrement() {
