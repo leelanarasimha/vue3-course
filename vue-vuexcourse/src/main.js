@@ -37,6 +37,21 @@ const store = createStore({
                 context.commit('increment', payload);
             }, 2000);
         },
+
+        actionA(context) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    context.commit('increment', { value: 1 });
+                    resolve('Leela Web Dev');
+                }, 2000);
+            });
+        },
+        actionB(context) {
+            context.dispatch('actionA').then((response) => {
+                console.log(response);
+                console.log('calling success from actionB');
+            });
+        },
     },
 });
 const app = createApp(App);
