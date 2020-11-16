@@ -30,6 +30,14 @@ const store = createStore({
             state.count = state.count + payload.value;
         },
     },
+    actions: {
+        increment(context, payload) {
+            console.log(context);
+            setTimeout(() => {
+                context.commit('increment', payload);
+            }, 2000);
+        },
+    },
 });
 const app = createApp(App);
 app.use(store);
