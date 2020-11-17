@@ -7,7 +7,9 @@
             {{ count }}
         </div>
         <div>
-            <button @click.prevent="onIncrement()">Increment</button>
+            <button @click.prevent="increment({ value: 2 })">
+                Increment
+            </button>
         </div>
 
         <div>
@@ -21,24 +23,30 @@
 <script>
 import Counter from './components/Counter.vue';
 import TodosList from './components/TodosList.vue';
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
 export default {
     name: 'App',
     computed: {
-        count() {
-            return this.$store.state.count;
-        },
-        doneListCount() {
-            return this.$store.getters.doneTodosListCount;
-        },
+        ...mapState({
+            count: (state) => state.count,
+        }),
+
+        ...mapGetters({
+            doneListCount: 'doneTodosListCount',
+        }),
     },
     components: {
         Counter,
         TodosList,
     },
     methods: {
-        onIncrement() {
-            this.$store.dispatch('increment', { value: 2 });
-        },
+        ...mapActions({
+            increment: 'increment',
+        }),
+
+        ...mapMutations({
+            inc: 'increment',
+        }),
     },
 };
 </script>

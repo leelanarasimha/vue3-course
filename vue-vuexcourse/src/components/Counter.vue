@@ -9,19 +9,20 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 export default {
     data() {
         return {};
     },
     computed: {
-        count() {
-            return this.$store.state.count;
-        },
+        ...mapState({
+            count: (state) => state.count,
+        }),
     },
     methods: {
-        onIncrement() {
-            this.$store.dispatch('actionB');
-        },
+        ...mapActions({
+            onIncrement: 'actionB',
+        }),
     },
 };
 </script>
