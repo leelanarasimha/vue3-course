@@ -27,29 +27,29 @@
     </div>
 </template>
 <script>
+import { mapGetters, mapState } from 'vuex';
 export default {
     data() {
         return {
             selectedId: 0,
+            todo: '',
         };
     },
     computed: {
-        todosList() {
-            return this.$store.state.todos;
-        },
-        doneListCount() {
-            return this.$store.getters.doneTodosListCount;
-        },
-        doneTodos() {
-            return this.$store.getters.doneTodos;
-        },
-        todo() {
-            return this.$store.getters.getTodoById(this.selectedId);
-        },
+        ...mapState({
+            todosList: (state) => state.todos.todos,
+        }),
+
+        ...mapGetters({
+            doneListCount: 'doneTodosListCount',
+            doneTodos: 'doneTodos',
+            todoById: 'getTodoById',
+        }),
     },
     methods: {
         onTodoSelected(id) {
             this.selectedId = id;
+            this.todo = this.todoById(id);
         },
     },
 };
