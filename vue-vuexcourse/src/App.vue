@@ -24,6 +24,10 @@
 import Counter from './components/Counter.vue';
 import TodosList from './components/TodosList.vue';
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
+import {
+    COUNTER_INCREMENT,
+    COUNTER_ON_INCREMENT,
+} from './store/storecontants';
 export default {
     name: 'App',
     computed: {
@@ -40,12 +44,12 @@ export default {
         TodosList,
     },
     methods: {
-        ...mapActions({
-            increment: 'counter/increment',
+        ...mapActions('counter', {
+            increment: COUNTER_INCREMENT,
         }),
 
         ...mapMutations({
-            inc: 'counter/increment',
+            inc: `counter/${COUNTER_ON_INCREMENT}`,
         }),
     },
 };

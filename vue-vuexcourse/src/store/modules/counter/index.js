@@ -1,3 +1,10 @@
+import {
+    COUNTER_ACTIONA,
+    COUNTER_ACTIONB,
+    COUNTER_INCREMENT,
+    COUNTER_ON_INCREMENT,
+} from '../../storecontants';
+
 export default {
     namespaced: true,
     state() {
@@ -6,28 +13,28 @@ export default {
         };
     },
     mutations: {
-        increment(state, payload) {
+        [COUNTER_ON_INCREMENT](state, payload) {
             state.count = state.count + payload.value;
         },
     },
     getters: {},
     actions: {
-        increment(context, payload) {
+        [COUNTER_INCREMENT](context, payload) {
             console.log(context);
             setTimeout(() => {
-                context.commit('increment', payload);
+                context.commit(COUNTER_ON_INCREMENT, payload);
             }, 2000);
         },
 
-        actionA(context) {
+        [COUNTER_ACTIONA](context) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    context.commit('increment', { value: 1 });
+                    context.commit(COUNTER_ON_INCREMENT, { value: 1 });
                     resolve('Leela Web Dev');
                 }, 2000);
             });
         },
-        actionB(context) {
+        [COUNTER_ACTIONB](context) {
             context.dispatch('actionA').then((response) => {
                 console.log(response);
                 console.log('calling success from actionB');
