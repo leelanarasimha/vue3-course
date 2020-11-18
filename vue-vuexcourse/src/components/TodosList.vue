@@ -40,7 +40,7 @@ export default {
             todosList: (state) => state.todos.todos,
         }),
 
-        ...mapGetters({
+        ...mapGetters('todos', {
             doneListCount: 'doneTodosListCount',
             doneTodos: 'doneTodos',
             todoById: 'getTodoById',

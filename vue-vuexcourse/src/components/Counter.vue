@@ -20,7 +20,7 @@ export default {
         }),
     },
     methods: {
-        ...mapActions({
+        ...mapActions('counter', {
             onIncrement: 'actionB',
         }),
     },

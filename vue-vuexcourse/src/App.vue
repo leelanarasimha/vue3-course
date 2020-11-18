@@ -32,7 +32,7 @@ export default {
         }),
 
         ...mapGetters({
-            doneListCount: 'doneTodosListCount',
+            doneListCount: 'todos/doneTodosListCount',
         }),
     },
     components: {
@@ -41,11 +41,11 @@ export default {
     },
     methods: {
         ...mapActions({
-            increment: 'increment',
+            increment: 'counter/increment',
         }),
 
         ...mapMutations({
-            inc: 'increment',
+            inc: 'counter/increment',
         }),
     },
 };

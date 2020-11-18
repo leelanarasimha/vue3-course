@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 
 const counterModule = {
+    namespaced: true,
     state() {
         return {
             count: 2,
@@ -40,6 +41,7 @@ const counterModule = {
 };
 
 const todosModule = {
+    namespaced: true,
     state() {
         return {
             todos: [
@@ -62,7 +64,11 @@ const todosModule = {
             return getters.doneTodos.length;
         },
     },
-    actions: {},
+    actions: {
+        actionB() {
+            console.log('firing from todos module actionB');
+        },
+    },
 };
 
 const store = createStore({
