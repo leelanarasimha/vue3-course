@@ -10,6 +10,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
+import { COUNTER_ACTIONB } from '../store/storecontants';
 export default {
     data() {
         return {};
@@ -21,7 +22,7 @@ export default {
     },
     methods: {
         ...mapActions('counter', {
-            onIncrement: 'actionB',
+            onIncrement: COUNTER_ACTIONB,
         }),
     },
 };

@@ -35,7 +35,7 @@ export default {
             });
         },
         [COUNTER_ACTIONB](context) {
-            context.dispatch('actionA').then((response) => {
+            context.dispatch(COUNTER_ACTIONA).then((response) => {
                 console.log(response);
                 console.log('calling success from actionB');
             });
