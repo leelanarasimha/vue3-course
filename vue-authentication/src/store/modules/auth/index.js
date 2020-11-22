@@ -6,7 +6,11 @@ export default {
     namespaced: true,
     state() {
         return {
-            name: 'Leela Web Dev',
+            token: '',
+            email: '',
+            userId: '',
+            refreshToken: '',
+            expiresIn: '',
         };
     },
     mutations,
