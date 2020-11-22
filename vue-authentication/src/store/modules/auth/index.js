@@ -10,7 +10,7 @@ export default {
             email: '',
             userId: '',
             refreshToken: '',
-            expiresIn: '',
+            expiresIn: 'sdsds',
         };
     },
     mutations,

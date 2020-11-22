@@ -52,6 +52,16 @@ export default {
             errors: [],
         };
     },
+    beforeRouteLeave() {
+        console.log('rote leaving');
+        console.log(this.$store);
+    },
+    beforeRouteEnter(_, _1, next) {
+        next((vm) => {
+            console.log('route entering');
+            console.log(vm.$store.state.auth);
+        });
+    },
     methods: {
         ...mapActions('auth', {
             signup: SIGNUP_ACTION,
