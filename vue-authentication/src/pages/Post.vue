@@ -10,20 +10,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tbody>
-                    <tr v-for="post in posts" :key="post.id">
-                        <td>{{ post.id }}</td>
-                        <td>{{ post.title }}</td>
-                        <td>{{ post.description }}</td>
-                    </tr>
-                </tbody>
+                <tr v-for="post in posts" :key="post.id">
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.description }}</td>
+                </tr>
             </tbody>
         </table>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axiosInstance from '../services/AxiosTokenInstance';
 import { mapGetters, mapMutations } from 'vuex';
 import {
     GET_USER_TOKEN_GETTER,
@@ -42,10 +40,8 @@ export default {
     },
     mounted() {
         this.showLoading(true);
-        axios
-            .get(
-                `https://vue-completecourse.firebaseio.com/posts.json?auth=${this.token}`,
-            )
+        axiosInstance
+            .get(`https://vue-completecourse.firebaseio.com/posts.json`)
             .then((response) => {
                 this.formatPosts(response.data);
                 this.showLoading(false);
