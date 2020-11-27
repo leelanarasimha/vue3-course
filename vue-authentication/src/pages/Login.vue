@@ -91,6 +91,7 @@ export default {
             }
 
             this.showLoading(false);
+            this.$router.push('/posts');
         },
     },
 };
