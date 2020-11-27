@@ -6,3 +6,5 @@ export const LOADING_SPINNER_SHOW_MUTATION =
     '[mutations] show loading spinner';
 
 export const GET_USER_TOKEN_GETTER = '[getters] auth user token';
+export const IS_USER_AUTHENTICATE_GETTER =
+    '[getters] is user authenticated';
