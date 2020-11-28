@@ -32,19 +32,39 @@
                         >Posts</router-link
                     >
                 </li>
+                <li class="nav-item" v-if="isAuthenticated">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        @click.prevent="onLogout()"
+                        >Logout</a
+                    >
+                </li>
             </ul>
         </div>
     </nav>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { IS_USER_AUTHENTICATE_GETTER } from '../store/storeconstants';
+import { mapActions, mapGetters } from 'vuex';
+import {
+    IS_USER_AUTHENTICATE_GETTER,
+    LOGOUT_ACTION,
+} from '../store/storeconstants';
 export default {
     computed: {
         ...mapGetters('auth', {
             isAuthenticated: IS_USER_AUTHENTICATE_GETTER,
         }),
+    },
+    methods: {
+        ...mapActions('auth', {
+            logout: LOGOUT_ACTION,
+        }),
+        onLogout() {
+            this.logout();
+            this.$router.replace('/login');
+        },
     },
 };
 </script>
