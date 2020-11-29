@@ -14,9 +14,13 @@
 
 <script>
 import TheNavigation from './components/TheNavigation.vue';
-import TheLoader from './components/TheLoader.vue';
 import { mapState } from 'vuex';
 import { AUTO_LOGIN_ACTION } from './store/storeconstants';
+import { defineAsyncComponent } from 'vue';
+
+const TheLoader = defineAsyncComponent(() =>
+    import(/* webpackChunkName: "Loader" */ './components/TheLoader.vue'),
+);
 export default {
     name: 'App',
     computed: {
