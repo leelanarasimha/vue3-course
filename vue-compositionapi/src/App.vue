@@ -5,18 +5,31 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 export default {
-    data() {
+    setup() {
+        let name = ref('Leela Web Dev');
+
+        setTimeout(() => {
+            console.log('execting time out in setup');
+            console.log(name);
+            name.value = 'Leela';
+        }, 3000);
+
         return {
-            userName: 'Leela Web Dev',
+            userName: name,
         };
     },
-
-    mounted() {
-        setTimeout(() => {
-            this.userName = 'Leela';
-        }, 3000);
-    },
+    // data() {
+    //     return {
+    //         userName: 'Leela Web Dev',
+    //     };
+    // },
+    // mounted() {
+    //     setTimeout(() => {
+    //         this.userName = 'Leela';
+    //     }, 3000);
+    // },
 };
 </script>
 
