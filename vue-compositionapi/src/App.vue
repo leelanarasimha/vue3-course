@@ -1,6 +1,19 @@
 <template>
     <div>
-        <div>The name of the youtube channel is {{ userName }}</div>
+        <div>{{ fullName }}</div>
+
+        <div style="margin-top: 30px">
+            <input
+                type="text"
+                placeholder="First Name"
+                @input="changeFirstName"
+            />&nbsp;
+            <input
+                type="text"
+                placeholder="Last Name"
+                @input="changeLastName"
+            />
+        </div>
 
         <h3>UserDetails</h3>
         <div>Name: {{ userDetails.name }}</div>
@@ -10,15 +23,29 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 export default {
     setup() {
         let name = ref('Leela Web Dev');
+        let firstName = ref('');
+        let lastName = ref('');
 
         let userDetails = reactive({
             name: 'Leela',
             age: 30,
         });
+
+        const fullName = computed(() => {
+            return firstName.value + ' ' + lastName.value;
+        });
+
+        function changeFirstName(event) {
+            firstName.value = event.target.value;
+        }
+
+        function changeLastName(event) {
+            lastName.value = event.target.value;
+        }
 
         function changeName() {
             userDetails.name = 'Modified Leela';
@@ -28,6 +55,9 @@ export default {
             userName: name,
             userDetails,
             changeName,
+            changeFirstName,
+            changeLastName,
+            fullName,
         };
     },
     // data() {
