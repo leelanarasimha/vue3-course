@@ -1,23 +1,35 @@
 <template>
     <div>
         <div>The name of the youtube channel is {{ userName }}</div>
+
+        <h3>UserDetails</h3>
+        <div>Name: {{ userDetails.name }}</div>
+        <div>Age: {{ userDetails.age }}</div>
     </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 export default {
     setup() {
         let name = ref('Leela Web Dev');
+
+        let userDetails = reactive({
+            name: 'Leela',
+            age: 30,
+        });
 
         setTimeout(() => {
             console.log('execting time out in setup');
             console.log(name);
             name.value = 'Leela';
+            userDetails.name = 'Modified Leela';
+            userDetails.age = 30;
         }, 3000);
 
         return {
             userName: name,
+            userDetails: userDetails,
         };
     },
     // data() {
