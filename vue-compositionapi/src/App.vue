@@ -3,13 +3,13 @@
         <div>The name of the youtube channel is {{ userName }}</div>
 
         <h3>UserDetails</h3>
-        <div>Name: {{ userDetails.name }}</div>
-        <div>Age: {{ userDetails.age }}</div>
+        <div>Name: {{ name }}</div>
+        <div>Age: {{ age }}</div>
     </div>
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
+import { ref, reactive, isReactive, isRef, toRefs } from 'vue';
 export default {
     setup() {
         let name = ref('Leela Web Dev');
@@ -19,17 +19,21 @@ export default {
             age: 30,
         });
 
+        console.log(isRef(name));
+        console.log(isReactive(userDetails));
+
         setTimeout(() => {
-            console.log('execting time out in setup');
-            console.log(name);
             name.value = 'Leela';
             userDetails.name = 'Modified Leela';
-            userDetails.age = 30;
+            userDetails.age = 20;
         }, 3000);
+
+        let userRefs = toRefs(userDetails);
 
         return {
             userName: name,
-            userDetails: userDetails,
+            name: userRefs.name,
+            age: userRefs.age,
         };
     },
     // data() {
