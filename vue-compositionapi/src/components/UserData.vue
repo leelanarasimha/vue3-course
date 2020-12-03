@@ -6,11 +6,16 @@
 
         <div>{{ fullDetails }}</div>
         <button @click.prevent="changeName">Change Name</button>
+
+        <div>
+            <input type="text" ref="ageref" />
+            <button @click.prevent="changeAge()">Change Age</button>
+        </div>
     </div>
 </template>
 
 <script>
-import { computed, reactive } from 'vue';
+import { computed, reactive, ref } from 'vue';
 export default {
     props: {
         userDetails: {
@@ -19,6 +24,7 @@ export default {
     },
 
     setup(props) {
+        const ageref = ref(null);
         const user = reactive(props.userDetails);
 
         const fullDetails = computed(() => {
@@ -28,10 +34,16 @@ export default {
             user.name = 'Modified Leela';
         }
 
+        function changeAge() {
+            user.age = ageref.value.value;
+        }
+
         return {
             changeName,
             user,
             fullDetails,
+            ageref,
+            changeAge,
         };
     },
 };
