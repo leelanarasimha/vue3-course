@@ -15,16 +15,17 @@
             />
         </div>
 
-        <h3>UserDetails</h3>
-        <div>Name: {{ userDetails.name }}</div>
-        <div>Age: {{ userDetails.age }}</div>
-        <button @click.prevent="changeName">Change Name</button>
+        <UserData :user-details="userDetails" />
     </div>
 </template>
 
 <script>
 import { ref, reactive, computed } from 'vue';
+import UserData from './components/UserData.vue';
 export default {
+    components: {
+        UserData,
+    },
     setup() {
         let name = ref('Leela Web Dev');
         let firstName = ref('');
