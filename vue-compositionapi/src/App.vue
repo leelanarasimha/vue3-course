@@ -2,6 +2,16 @@
     <div>
         <div>{{ fullName }}</div>
 
+        <div v-if="showLifeCycle">
+            <LifeCycle />
+        </div>
+
+        <div>
+            <button @click.prevent="showLifeCycle = !showLifeCycle">
+                Toggle Life Cycle
+            </button>
+        </div>
+
         <div style="margin-top: 30px">
             <input
                 type="text"
@@ -22,12 +32,15 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 import UserData from './components/UserData.vue';
+import LifeCycle from './components/LifeCycle.vue';
 export default {
     components: {
         UserData,
+        LifeCycle,
     },
     setup() {
         let name = ref('Leela Web Dev');
+        let showLifeCycle = ref(true);
         let firstName = ref('');
         let lastName = ref('');
 
@@ -59,6 +72,7 @@ export default {
             changeFirstName,
             changeLastName,
             fullName,
+            showLifeCycle,
         };
     },
     // data() {
