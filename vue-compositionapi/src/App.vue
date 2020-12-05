@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div>
+            <router-view> </router-view>
+            <hr />
+        </div>
         <div>{{ fullName }}</div>
 
         <div v-if="showLifeCycle">
