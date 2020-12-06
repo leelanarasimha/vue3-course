@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import GlobalMixin from './mixins/GlobalMixin';
 
-createApp(App).mount('#app')
+const app = createApp(App);
+app.mixin(GlobalMixin);
+app.mount('#app');

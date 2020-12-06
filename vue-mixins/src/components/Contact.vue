@@ -11,6 +11,14 @@
 <script>
 import CounterMixin from '../mixins/CounterMixin';
 export default {
+    data() {
+        return {
+            counter: 5,
+        };
+    },
+    mounted() {
+        console.log('mounted from component');
+    },
     mixins: [CounterMixin],
 };
 </script>
