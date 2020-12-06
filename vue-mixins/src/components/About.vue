@@ -2,6 +2,7 @@
     <div>
         <div>About Component</div>
         <div>{{ counter }}</div>
+        <div>{{ name }}</div>
         <div>
             <button @click.prevent="onIncrement(10)">Increment</button>
         </div>
@@ -9,8 +10,17 @@
 </template>
 
 <script>
-import CounterMixin from '../mixins/CounterMixin';
+import { ref } from 'vue';
+import useCounter from '../hooks/useCounter';
 export default {
-    mixins: [CounterMixin],
+    setup() {
+        const name = ref('Leela');
+        const counterData = useCounter(10);
+
+        return {
+            name,
+            ...counterData,
+        };
+    },
 };
 </script>

@@ -9,16 +9,10 @@
 </template>
 
 <script>
-import CounterMixin from '../mixins/CounterMixin';
+import useCounter from '../hooks/useCounter';
 export default {
-    data() {
-        return {
-            counter: 5,
-        };
+    setup() {
+        return useCounter(20);
     },
-    mounted() {
-        console.log('mounted from component');
-    },
-    mixins: [CounterMixin],
 };
 </script>

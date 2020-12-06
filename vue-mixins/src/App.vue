@@ -1,25 +1,21 @@
 <template>
     <div>
-        <!-- <About />
+        <About />
         <hr />
-        <Contact /> -->
+        <Contact />
     </div>
 </template>
 
 //
 <script>
-// import About from './components/About.vue';
-// import Contact from './components/Contact.vue';
-import CounterMixin from './mixins/CounterMixin';
+import About from './components/About.vue';
+import Contact from './components/Contact.vue';
 export default {
     name: 'App',
-    mixins: [CounterMixin],
-    mounted() {
-        console.log('mounted from app component');
-    },
+
     components: {
-        //     About,
-        //     Contact,
+        About,
+        Contact,
     },
 };
 </script>
